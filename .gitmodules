@@ -1,0 +1,3 @@
+[submodule "pythonprelude"]
+	path = pythonprelude
+	url = git@bitbucket.org:tidues001/pythonprelude.git
