@@ -11,7 +11,7 @@ wFile = ew.wFile
 dataFormat = tr.dataFormat
 
 # function that dealing with all files in a folder
-def rwFiles(filter_func, rfolder='./', wfolder='./combined', 
+def rwFiles(filter_func, rfolder='../', wfolder='./combined', 
             wName='combined', counter=0, osfix='.dat'):
     headers = {}
     files = os.listdir(rfolder)
@@ -44,9 +44,9 @@ def rwFile(rfolder, rfname, wfolder, wfname, cnt, osfix, headers):
         wffname = wfolder + '/' + fsave
         # create out string
         if info == []:
-            outStr = rfname + '\tNo contents!'
+            outStr = rfname + '\tNo contents!\n'
         else:
-            outStr = rfname + '\t' + ''.join(fp.lmap(rowStr, info))
+            outStr = ''.join(fp.lmap(lambda x: rfname + '\t' + rowStr(x), info))
         outStr = headStr + outStr
 
         # write file
@@ -117,9 +117,9 @@ if __name__ == '__main__':
             if y == 'q':
                 exit()
         else:
-            print(val[0])
-            print(val[1])
-            print(val[2])
+            # print(val[0])
+            # print(val[1])
+            # print(val[2])
             pfunc = prefix_filter(val[0])
             cfunc = contain_filter(val[1])
             sfunc = surfix_filter(val[2])
